@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,215 +11,252 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;700&display=swap');
 
+
 *{
 box-sizing:border-box;
 }
 
+
 body{
+
 margin:0;
 font-family:'Cairo',sans-serif;
+
 background:
-radial-gradient(circle,#d4af3766,transparent 35%),
-linear-gradient(135deg,#020817,#071b3d);
+radial-gradient(circle at top,#d4af3760,transparent 35%),
+linear-gradient(135deg,#020817,#091d3a);
+
 color:white;
 min-height:100vh;
 overflow:hidden;
+
 }
 
 
 .container{
+
 height:100vh;
+
 display:flex;
-justify-content:center;
+
 align-items:center;
+
+justify-content:center;
+
 padding:20px;
+
 }
 
 
-/* علبة الخاتم */
+/* =====================
+   علبة الخاتم الفاخرة
+===================== */
 
-.box-container{
+
+.gift-area{
+
 text-align:center;
+
 cursor:pointer;
-animation:appear 2s;
+
+animation:fadeIn 2s;
+
 }
 
 
-.gift-box{
-width:180px;
-height:100px;
-background:#7b1113;
-border-radius:15px;
+.gift{
+
 position:relative;
+
+width:220px;
+
+height:140px;
+
 margin:auto;
-box-shadow:0 20px 40px #000;
+
+perspective:800px;
+
 }
 
 
-.gift-box:before{
-content:"";
-position:absolute;
-width:35px;
-height:100%;
-background:#d4af37;
-left:72px;
-}
+/* جسم العلبة */
 
+.box-body{
 
-.lid{
 position:absolute;
-width:200px;
-height:35px;
-background:#9b1c1f;
-top:-30px;
-left:-10px;
+
+bottom:0;
+
+width:220px;
+
+height:100px;
+
+background:
+
+linear-gradient(145deg,#6d0f1a,#a51c30);
+
 border-radius:15px;
-transition:1s;
-transform-origin:bottom;
+
+box-shadow:
+
+0 25px 50px #000,
+
+inset 0 0 30px #0008;
+
 }
+
+
+/* الحواف الذهبية */
+
+.box-body:before{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:8px;
+
+background:#d4af37;
+
+top:45px;
+
+}
+
+
+.box-body:after{
+
+content:"";
+
+position:absolute;
+
+height:100%;
+
+width:8px;
+
+background:#d4af37;
+
+left:106px;
+
+}
+
+
+/* الغطاء */
+
+
+.cover{
+
+position:absolute;
+
+top:5px;
+
+left:-10px;
+
+width:240px;
+
+height:45px;
+
+background:
+
+linear-gradient(145deg,#a51c30,#5b0914);
+
+border-radius:15px;
+
+transform-origin:bottom;
+
+transition:1.8s;
+
+box-shadow:
+
+0 -10px 30px #000;
+
+z-index:3;
+
+}
+
+
+/* الشريط */
 
 
 .ribbon{
+
 position:absolute;
-width:100%;
-height:15px;
+
+top:0;
+
+left:106px;
+
+height:140px;
+
+width:8px;
+
 background:#d4af37;
-top:45px;
+
+z-index:4;
+
 }
+
+
+/* الخاتم */
 
 
 .ring{
-font-size:70px;
+
 position:absolute;
-top:-100px;
-left:55px;
+
+font-size:90px;
+
+top:55px;
+
+left:65px;
+
 opacity:0;
-transition:1.5s;
+
+transform:translateY(40px) scale(.5);
+
+transition:2s;
+
+z-index:2;
+
+filter:
+
+drop-shadow(0 0 20px #ffd700);
+
 }
 
 
-.open .lid{
+/* عند الفتح */
+
+
+.open .cover{
+
 transform:rotateX(120deg);
+
 }
 
 
 .open .ring{
+
 opacity:1;
-top:-140px;
+
+transform:translateY(-80px) scale(1);
+
 }
 
 
-.open-box{
-display:none;
-}
+.gift-title{
 
+margin-top:40px;
 
-/* الدعوة */
-
-
-.invitation{
-display:none;
-max-width:500px;
-width:100%;
-text-align:center;
-padding:35px 25px;
-background:#ffffff15;
-border:1px solid #d4af37;
-border-radius:30px;
-backdrop-filter:blur(12px);
-box-shadow:0 0 40px #d4af3766;
-animation:slide 2s;
-}
-
-
-.show{
-display:block;
-}
-
-
-@keyframes slide{
-from{
-opacity:0;
-transform:translateY(80px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-
-h1{
-font-family:'Amiri',serif;
 color:#d4af37;
+
+font-size:22px;
+
 }
 
 
-.names{
-font-family:'Amiri',serif;
-font-size:55px;
-margin:20px;
-}
-
-
-.names span{
-color:#d4af37;
-}
-
-
-.text{
-font-size:18px;
-line-height:2;
-}
-
-
-.gold{
-color:#d4af37;
-}
-
-
-.info{
-margin:20px;
-font-size:18px;
-line-height:2.2;
-}
-
-
-/* العداد */
-
-.countdown{
-display:flex;
-justify-content:center;
-gap:10px;
-margin:25px 0;
-}
-
-
-.time{
-border:1px solid #d4af37;
-border-radius:15px;
-padding:10px;
-min-width:80px;
-}
-
-
-.time b{
-display:block;
-font-size:25px;
-color:#d4af37;
-}
-
-
-button{
-background:#d4af37;
-border:0;
-padding:15px 35px;
-border-radius:30px;
-font-size:18px;
-font-weight:bold;
-color:#071b3d;
-}
-
+/* نهاية الجزء الأول */
 
 </style>
 
@@ -226,190 +264,573 @@ color:#071b3d;
 
 <body>
 
+
 <div class="container">
 
-<div class="box-container" id="gift" onclick="openGift()">
 
-<div class="gift-box">
+<div class="gift-area" id="gift" onclick="openGift()">
 
-<div class="lid"></div>
+
+
+<div class="gift">
+
+
+<div class="cover"></div>
+
+<div class="box-body"></div>
 
 <div class="ribbon"></div>
+
 
 <div class="ring">
 💍
 </div>
 
-</div>
-
-<h2 style="color:#d4af37">
-اضغط لفتح الدعوة
-</h2>
 
 </div>
 
+
+<div class="gift-title">
+اضغط لفتح الدعوة ✨
+</div>
+
+
+</div>
+
+<!-- بداية بطاقة الدعوة -->
 
 <div class="invitation" id="invitation">
+
 
 <h1>
 بسم الله الرحمن الرحيم
 </h1>
 
-<p class="text">
+
+<p class="verse">
 ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ
 أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ
 مَوَدَّةً وَرَحْمَةً ﴾
 </p>
 
-<h1>
+
+
+<h2>
 دعوة خطوبة
-</h1>
+</h2>
+
+
 
 <div class="names">
-علي <span>🤍</span> مريم
+
+علي
+
+<span>🤍</span>
+
+مريم
+
 </div>
+
+
+
 <p class="text">
-بكل الحب والفرح، يسعدنا دعوتكم لمشاركتنا
-أجمل لحظات العمر وحضور حفل خطوبتنا.
+
+بكل الحب والفرح،
+يسعدنا دعوتكم لمشاركتنا أجمل لحظات العمر
+وحضور حفل خطوبتنا.
+
 </p>
 
 
-<div class="info">
+
+
+<div class="details">
+
 
 <div>
-<span class="gold">📅 التاريخ</span><br>
+<span>📅</span>
+<br>
 14 / 8 / 2026
 </div>
 
 
+
 <div>
-<span class="gold">🕟 الوقت</span><br>
+<span>🕟</span>
+<br>
 4:30 مساءً
 </div>
 
 
+
 <div>
-<span class="gold">📍 المكان</span><br>
+<span>📍</span>
+<br>
 حي الجهاد - قاعة مزايا
 </div>
 
+
+
 </div>
 
 
-<h2 style="color:#d4af37">
-متبقي على موعد الخطوبة
-</h2>
+
+<h3>
+باقي على موعد الخطوبة
+</h3>
+
 
 
 <div class="countdown">
 
+
 <div class="time">
-<b id="days">00</b>
+
+<b id="days">0</b>
+
 يوم
+
 </div>
 
 
+
 <div class="time">
-<b id="hours">00</b>
+
+<b id="hours">0</b>
+
 ساعة
+
 </div>
 
 
+
 <div class="time">
-<b id="minutes">00</b>
+
+<b id="minutes">0</b>
+
 دقيقة
+
 </div>
+
 
 
 <div class="time">
-<b id="seconds">00</b>
+
+<b id="seconds">0</b>
+
 ثانية
-</div>
 
 </div>
+
+
+
+</div>
+
 
 
 <button onclick="window.open('https://maps.app.goo.gl/hTWZLbbmdzwaHJDr9')">
+
 📍 موقع القاعة
+
 </button>
 
 
-<p class="text">
-حضوركم يسعدنا ويكمل فرحتنا 🌹
+
+<p class="footer">
+
+حضوركم يزيد فرحتنا 🌹
+
 </p>
 
 
-</div>
 
 </div>
 
 
-<script>
+</div>
 
-function openGift(){
 
-let gift=document.getElementById("gift");
-let invitation=document.getElementById("invitation");
+<style>
 
-gift.classList.add("open");
 
-setTimeout(function(){
+/* تصميم الدعوة */
 
-gift.style.display="none";
 
-invitation.classList.add("show");
+.invitation{
 
-document.body.style.overflow="auto";
+display:none;
 
-},2000);
+max-width:520px;
+
+width:100%;
+
+padding:35px 25px;
+
+text-align:center;
+
+background:
+
+linear-gradient(
+
+145deg,
+
+#ffffff18,
+
+#ffffff08
+
+);
+
+
+border:
+
+1px solid #d4af37;
+
+
+border-radius:30px;
+
+
+backdrop-filter:blur(15px);
+
+
+box-shadow:
+
+0 0 50px #d4af3755;
+
+
+animation:
+
+showCard 2s;
 
 }
 
 
 
+
+@keyframes showCard{
+
+from{
+
+opacity:0;
+
+transform:translateY(100px) scale(.8);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+
+}
+
+
+
+.show{
+
+display:block;
+
+}
+
+
+
+h1,h2{
+
+font-family:'Amiri',serif;
+
+color:#d4af37;
+
+}
+
+
+
+h2{
+
+font-size:35px;
+
+}
+
+
+
+.names{
+
+font-family:'Amiri',serif;
+
+font-size:60px;
+
+margin:20px;
+
+}
+
+
+.names span{
+
+color:#d4af37;
+
+}
+
+
+
+.verse{
+
+line-height:2;
+
+font-size:16px;
+
+}
+
+
+
+.text{
+
+font-size:18px;
+
+line-height:2;
+
+}
+
+
+
+.details{
+
+margin:25px 0;
+
+font-size:20px;
+
+line-height:2.3;
+
+}
+
+
+
+.details span{
+
+font-size:28px;
+
+}
+
+
+
+h3{
+
+color:#d4af37;
+
+}
+
+
+
+.countdown{
+
+display:flex;
+
+justify-content:center;
+
+gap:8px;
+
+margin:20px 0;
+
+}
+
+
+
+.time{
+
+border:
+
+1px solid #d4af37;
+
+border-radius:15px;
+
+padding:10px;
+
+min-width:75px;
+
+}
+
+
+
+.time b{
+
+display:block;
+
+font-size:28px;
+
+color:#d4af37;
+
+}
+
+
+
+button{
+
+background:#d4af37;
+
+color:#07152f;
+
+border:0;
+
+padding:15px 35px;
+
+border-radius:30px;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+.footer{
+
+margin-top:25px;
+
+color:#d4af37;
+
+font-size:18px;
+
+}
+
+
+</style>
+ <script>
+
+
+function openGift(){
+
+
+let gift = document.getElementById("gift");
+
+let invitation = document.getElementById("invitation");
+
+
+
+gift.classList.add("open");
+
+
+
+setTimeout(function(){
+
+
+gift.style.display="none";
+
+
+invitation.classList.add("show");
+
+
+document.body.style.overflow="auto";
+
+
+},2200);
+
+
+
+}
+
+
+
+
+
 // العداد التنازلي
 
-let eventDate = new Date("August 14, 2026 16:30:00").getTime();
+let targetDate = new Date("August 14, 2026 16:30:00").getTime();
 
 
-setInterval(function(){
+
+function countdown(){
+
 
 let now = new Date().getTime();
 
-let distance = eventDate - now;
+
+let difference = targetDate - now;
 
 
-let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+if(difference < 0){
+
+document.getElementById("days").innerHTML = "0";
+
+document.getElementById("hours").innerHTML = "0";
+
+document.getElementById("minutes").innerHTML = "0";
+
+document.getElementById("seconds").innerHTML = "0";
+
+return;
+
+}
+
+
+
+let days = Math.floor(
+
+difference / (1000 * 60 * 60 * 24)
+
+);
+
+
 
 let hours = Math.floor(
-(distance % (1000 * 60 * 60 * 24))
+
+(difference % (1000 * 60 * 60 * 24))
+
 / (1000 * 60 * 60)
+
 );
+
 
 
 let minutes = Math.floor(
-(distance % (1000 * 60 * 60))
+
+(difference % (1000 * 60 * 60))
+
 / (1000 * 60)
+
 );
+
 
 
 let seconds = Math.floor(
-(distance % (1000 * 60))
+
+(difference % (1000 * 60))
+
 / 1000
+
 );
 
 
+
 document.getElementById("days").innerHTML = days;
+
+
 document.getElementById("hours").innerHTML = hours;
+
+
 document.getElementById("minutes").innerHTML = minutes;
+
+
 document.getElementById("seconds").innerHTML = seconds;
 
 
-},1000);
+
+}
+
+
+
+setInterval(countdown,1000);
+
+
+countdown();
 
 
 </script>
 
 
 </body>
-</html>
+
+</html> 
