@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
@@ -23,235 +24,81 @@ margin:0;
 font-family:'Cairo',sans-serif;
 
 background:
-radial-gradient(circle at top,#d4af3760,transparent 35%),
-linear-gradient(135deg,#020817,#091d3a);
+radial-gradient(circle at center,#d4af3740,transparent 30%),
+linear-gradient(135deg,#020817,#071b3d);
 
 color:white;
 min-height:100vh;
+
 overflow:hidden;
 
 }
 
 
-.container{
+/* شاشة الخاتم */
+
+.opening{
 
 height:100vh;
 
 display:flex;
 
+flex-direction:column;
+
 align-items:center;
 
 justify-content:center;
 
-padding:20px;
-
-}
-
-
-/* =====================
-   علبة الخاتم الفاخرة
-===================== */
-
-
-.gift-area{
-
-text-align:center;
-
 cursor:pointer;
 
-animation:fadeIn 2s;
+animation:fade 2s;
 
 }
 
 
-.gift{
+@keyframes fade{
 
-position:relative;
-
-width:220px;
-
-height:140px;
-
-margin:auto;
-
-perspective:800px;
-
-}
-
-
-/* جسم العلبة */
-
-.box-body{
-
-position:absolute;
-
-bottom:0;
-
-width:220px;
-
-height:100px;
-
-background:
-
-.box-body{
-background:
-linear-gradient(145deg,#020817,#142b52);
-border:2px solid #d4af37;
-}
-border-radius:15px;
-
-box-shadow:
-
-0 25px 50px #000,
-
-inset 0 0 30px #0008;
-
-}
-
-
-/* الحواف الذهبية */
-
-.box-body:before{
-
-content:"";
-
-position:absolute;
-
-width:100%;
-
-height:8px;
-
-background:#d4af37;
-
-top:45px;
-
-}
-
-
-.box-body:after{
-
-content:"";
-
-position:absolute;
-
-height:100%;
-
-width:8px;
-
-background:#d4af37;
-
-left:106px;
-
-}
-
-
-/* الغطاء */
-
-
-.cover{
-
-position:absolute;
-
-top:5px;
-
-left:-10px;
-
-width:240px;
-
-height:45px;
-
-background:
-
-.cover{
-background:
-linear-gradient(145deg,#142b52,#020817);
-border:2px solid #d4af37;
-}
-border-radius:15px;
-
-transform-origin:bottom;
-
-transition:1.8s;
-
-box-shadow:
-
-0 -10px 30px #000;
-
-z-index:3;
-
-}
-
-
-/* الشريط */
-
-
-.ribbon{
-
-position:absolute;
-
-top:0;
-
-left:106px;
-
-height:140px;
-
-width:8px;
-
-background:#d4af37;
-
-z-index:4;
-
-}
-
-
-/* الخاتم */
-
-
-.ring{
-
-position:absolute;
-
-font-size:90px;
-
-top:55px;
-
-left:65px;
-
+from{
 opacity:0;
+}
 
-transform:translateY(40px) scale(.5);
+to{
+opacity:1;
+}
 
-transition:2s;
+}
 
-z-index:2;
+
+
+.ring-icon{
+
+font-size:120px;
 
 filter:
+drop-shadow(0 0 25px #d4af37);
 
-drop-shadow(0 0 20px #ffd700);
-
-}
-
-
-/* عند الفتح */
-
-
-.open .cover{
-
-transform:rotateX(120deg);
+animation:
+float 3s infinite alternate;
 
 }
 
 
-.open .ring{
 
-opacity:1;
+@keyframes float{
 
-transform:translateY(-80px) scale(1);
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-25px);
+}
 
 }
 
 
-.gift-title{
+
+.open-text{
 
 margin-top:40px;
 
@@ -262,50 +109,96 @@ font-size:22px;
 }
 
 
-/* نهاية الجزء الأول */
 
-</style>
+/* تأثير الضغط */
 
-</head>
+.ring-icon:active{
 
-<body>
+transform:scale(1.3);
 
-
-<div class="container">
-
-
-<div class="gift-area" id="gift" onclick="openGift()">
+}
 
 
 
-<div class="gift">
+/* الدعوة */
 
 
-<div class="cover"></div>
+.invitation{
 
-<div class="box-body"></div>
+display:none;
 
-<div class="ribbon"></div>
+min-height:100vh;
 
+padding:25px;
 
-<div class="ring">
-💍
-</div>
+align-items:center;
 
+justify-content:center;
 
-</div>
-
-
-<div class="gift-title">
-اضغط لفتح الدعوة ✨
-</div>
+}
 
 
-</div>
 
-<!-- بداية بطاقة الدعوة -->
+.card{
 
-<div class="invitation" id="invitation">
+max-width:520px;
+
+width:100%;
+
+text-align:center;
+
+padding:35px 25px;
+
+background:#ffffff12;
+
+border:1px solid #d4af37;
+
+border-radius:30px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 50px #d4af3766;
+
+animation:
+
+showCard 2s;
+
+}
+
+
+
+@keyframes showCard{
+
+from{
+
+opacity:0;
+
+transform:scale(.7) translateY(80px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:scale(1) translateY(0);
+
+}
+
+}
+
+
+.show{
+
+display:flex;
+
+}
+   <!-- محتوى الدعوة -->
+
+<div class="card">
 
 
 <h1>
@@ -314,9 +207,11 @@ font-size:22px;
 
 
 <p class="verse">
+
 ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ
 أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ
 مَوَدَّةً وَرَحْمَةً ﴾
+
 </p>
 
 
@@ -342,11 +237,10 @@ font-size:22px;
 <p class="text">
 
 بكل الحب والفرح،
-يسعدنا دعوتكم لمشاركتنا أجمل لحظات العمر
+نتشرف بدعوتكم لمشاركتنا أجمل لحظات العمر
 وحضور حفل خطوبتنا.
 
 </p>
-
 
 
 
@@ -360,7 +254,6 @@ font-size:22px;
 </div>
 
 
-
 <div>
 <span>🕟</span>
 <br>
@@ -368,13 +261,11 @@ font-size:22px;
 </div>
 
 
-
 <div>
 <span>📍</span>
 <br>
 حي الجهاد - قاعة مزايا
 </div>
-
 
 
 </div>
@@ -391,43 +282,27 @@ font-size:22px;
 
 
 <div class="time">
-
 <b id="days">0</b>
-
 يوم
-
 </div>
 
 
-
 <div class="time">
-
 <b id="hours">0</b>
-
 ساعة
-
 </div>
 
 
-
 <div class="time">
-
 <b id="minutes">0</b>
-
 دقيقة
-
 </div>
-
 
 
 <div class="time">
-
 <b id="seconds">0</b>
-
 ثانية
-
 </div>
-
 
 
 </div>
@@ -459,91 +334,6 @@ font-size:22px;
 <style>
 
 
-/* تصميم الدعوة */
-
-
-.invitation{
-
-display:none;
-
-max-width:520px;
-
-width:100%;
-
-padding:35px 25px;
-
-text-align:center;
-
-background:
-
-linear-gradient(
-
-145deg,
-
-#ffffff18,
-
-#ffffff08
-
-);
-
-
-border:
-
-1px solid #d4af37;
-
-
-border-radius:30px;
-
-
-backdrop-filter:blur(15px);
-
-
-box-shadow:
-
-0 0 50px #d4af3755;
-
-
-animation:
-
-showCard 2s;
-
-}
-
-
-
-
-@keyframes showCard{
-
-from{
-
-opacity:0;
-
-transform:translateY(100px) scale(.8);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0) scale(1);
-
-}
-
-
-}
-
-
-
-.show{
-
-display:block;
-
-}
-
-
-
 h1,h2{
 
 font-family:'Amiri',serif;
@@ -553,10 +343,9 @@ color:#d4af37;
 }
 
 
-
 h2{
 
-font-size:35px;
+font-size:38px;
 
 }
 
@@ -615,7 +404,7 @@ line-height:2.3;
 
 .details span{
 
-font-size:28px;
+font-size:30px;
 
 }
 
@@ -637,7 +426,7 @@ justify-content:center;
 
 gap:8px;
 
-margin:20px 0;
+margin:25px 0;
 
 }
 
@@ -645,9 +434,7 @@ margin:20px 0;
 
 .time{
 
-border:
-
-1px solid #d4af37;
+border:1px solid #d4af37;
 
 border-radius:15px;
 
@@ -675,7 +462,7 @@ button{
 
 background:#d4af37;
 
-color:#07152f;
+color:#071b3d;
 
 border:0;
 
@@ -693,37 +480,36 @@ font-weight:bold;
 
 .footer{
 
-margin-top:25px;
-
 color:#d4af37;
 
-font-size:18px;
+margin-top:25px;
 
 }
 
 
 </style>
- <script>
+<script>
+
+function openInvitation(){
 
 
-function openGift(){
-
-
-let gift = document.getElementById("gift");
+let opening = document.getElementById("opening");
 
 let invitation = document.getElementById("invitation");
 
 
+opening.style.transform="scale(1.5)";
 
-gift.classList.add("open");
+opening.style.opacity="0";
+
+opening.style.transition="1.5s";
 
 
 
 setTimeout(function(){
 
 
-gift.style.display="none";
-
+opening.style.display="none";
 
 invitation.classList.add("show");
 
@@ -731,43 +517,33 @@ invitation.classList.add("show");
 document.body.style.overflow="auto";
 
 
-},2200);
-
+},1500);
 
 
 }
 
 
 
-
-
 // العداد التنازلي
 
-let targetDate = new Date("August 14, 2026 16:30:00").getTime();
+
+let eventDate = new Date("August 14, 2026 16:30:00").getTime();
 
 
 
-function countdown(){
+function updateCountdown(){
 
 
 let now = new Date().getTime();
 
 
-let difference = targetDate - now;
+let distance = eventDate - now;
 
 
 
-if(difference < 0){
+if(distance < 0){
 
-document.getElementById("days").innerHTML = "0";
-
-document.getElementById("hours").innerHTML = "0";
-
-document.getElementById("minutes").innerHTML = "0";
-
-document.getElementById("seconds").innerHTML = "0";
-
-return;
+distance = 0;
 
 }
 
@@ -775,7 +551,7 @@ return;
 
 let days = Math.floor(
 
-difference / (1000 * 60 * 60 * 24)
+distance / (1000 * 60 * 60 * 24)
 
 );
 
@@ -783,7 +559,7 @@ difference / (1000 * 60 * 60 * 24)
 
 let hours = Math.floor(
 
-(difference % (1000 * 60 * 60 * 24))
+(distance % (1000 * 60 * 60 * 24))
 
 / (1000 * 60 * 60)
 
@@ -793,7 +569,7 @@ let hours = Math.floor(
 
 let minutes = Math.floor(
 
-(difference % (1000 * 60 * 60))
+(distance % (1000 * 60 * 60))
 
 / (1000 * 60)
 
@@ -803,7 +579,7 @@ let minutes = Math.floor(
 
 let seconds = Math.floor(
 
-(difference % (1000 * 60))
+(distance % (1000 * 60))
 
 / 1000
 
@@ -811,27 +587,22 @@ let seconds = Math.floor(
 
 
 
-document.getElementById("days").innerHTML = days;
+document.getElementById("days").innerHTML=days;
 
+document.getElementById("hours").innerHTML=hours;
 
-document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML=minutes;
 
-
-document.getElementById("minutes").innerHTML = minutes;
-
-
-document.getElementById("seconds").innerHTML = seconds;
-
+document.getElementById("seconds").innerHTML=seconds;
 
 
 }
 
 
 
-setInterval(countdown,1000);
+setInterval(updateCountdown,1000);
 
-
-countdown();
+updateCountdown();
 
 
 </script>
@@ -839,4 +610,4 @@ countdown();
 
 </body>
 
-</html> 
+</html>
